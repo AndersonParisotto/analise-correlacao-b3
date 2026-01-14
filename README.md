@@ -1,19 +1,36 @@
-Análise de Correlação: Ativos da B3 vs Ibovespa
+  Análise de Correlação e Performance: Blue Chips vs Ibovespa
 
-Este projeto analisa a relação estatística entre grandes ativos da bolsa brasileira (Petrobras, Vale e Itaú) em comparação ao principal índice do mercado (Ibovespa).
-Com o objetivo é identificar como esses ativos se movem em relação ao mercado geral, auxiliando na compreensão de risco e diversificação de carteira para o período de 2023 a 2025.
+Este projeto utiliza Python para extrair e analisar dados reais da B3 (Bolsa de Valores brasileira). O foco é entender a dinâmica entre três gigantes do mercado — **Petrobras, Vale e Itaú** — em relação ao índice de referência Ibovespa (^BVSP).
 
-Tecnologias Utilizadas
-- Python 3.x
-- Pandas: Manipulação e limpeza de dados financeiros.
-- YFinance: Extração de dados reais via API do Yahoo Finance.
-- Seaborn & Matplotlib: Visualização de dados e criação do Heatmap de correlação.
+  Objetivo
+O objetivo é fornecer uma visão quantitativa sobre a força da relação entre esses ativos e sua performance acumulada no período de **2023 a 2025**, auxiliando na tomada de decisão sobre diversificação e exposição ao risco sistêmico.
 
-O que os dados dizem?
-- Alta Correlação: O Itaú (ITUB4) demonstrou a maior proximidade com o Ibovespa (0.74), sendo um forte pilar do índice.
-- Independência: A Petrobras (PETR4) apresentou uma correlação moderada (0.48), indicando que fatores específicos (como preço do barril ou decisões políticas) afetaram seu preço de forma distinta do resto do mercado.
-- Oportunidade de Diversificação: A correlação entre Vale e Petrobras é baixa (0.21), o que sugere que ter ambas na carteira pode ajudar a reduzir o risco sistêmico.
+ Tecnologias Utilizadas
+* **Python 3.13**: Linguagem base.
+* **Pandas**: Limpeza e tratamento de séries temporais (uso de `.ffill()` e `.pct_change()`).
+* **YFinance**: Consumo de dados financeiros em tempo real.
+* **Seaborn & Matplotlib**: Visualização de dados estatísticos.
 
-Como executar
-1. Instale as dependências: `pip install -r requirements.txt` (opcional)
-2. Execute o script: `python analise_correlacao.py`
+  Insights da Análise
+
+Matriz de Correlação (Relação de Movimento)
+A correlação mede o quanto os ativos se movem na mesma direção. 
+* **ITUB4 (Itaú)**: Apresentou a maior correlação com o Ibovespa (0.74), sendo o ativo que melhor reflete o humor do mercado geral.
+* **PETR4 (Petrobras)**: Com correlação de 0.48, mostra-se mais independente, sendo afetada por variáveis externas (Petróleo/Política) que nem sempre impactam o restante do índice.
+* **Diversificação**: A baixa correlação entre **Vale e Petrobras (0.21)** sugere que uma carteira contendo ambos os ativos é mais resiliente do que uma focada em apenas um setor.
+
+![Matriz de Correlação](heatmap_correlacao.png)
+
+Retorno Acumulado (Performance de R$ 1,00)
+Este gráfico visualiza a jornada do capital investido. Ele permite identificar não apenas quem rendeu mais, mas quem sofreu mais volatilidade (quedas bruscas) ao longo do tempo.
+
+![Retorno Acumulado](retorno_acumulado.png)
+
+Como Executar
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/AndersonParisotto/analise-correlacao-b3.git](https://github.com/AndersonParisotto/analise-correlacao-b3.git)
+2. Instale as dependências:
+   `pip install pandas yfinance seaborn matplotlib`
+3. Execute o script:
+  `python analise_correlacao.py`
